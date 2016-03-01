@@ -1,17 +1,16 @@
-'use strict';
+(function() {
+    'use strict';
 
 /**
  * @ngdoc function
- * @name appAdminApp.controller:MainCtrl
+ * @name appAdminApp.controller:signinCtrl
  * @description
- * # MainCtrl
+ * # signinCtrl
  * Controller of the appAdminApp
  */
-angular.module('appAdmin')
+angular.module('app')
   .controller('vipReviewCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
   });
+
+})();

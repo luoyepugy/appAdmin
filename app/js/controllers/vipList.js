@@ -1,13 +1,16 @@
-'use strict';
+(function() {
+    'use strict';
 
 /**
  * @ngdoc function
- * @name appAdminApp.controller:AboutCtrl
+ * @name appAdminApp.controller:signinCtrl
  * @description
- * # AboutCtrl
+ * # signinCtrl
  * Controller of the appAdminApp
  */
-angular.module('appAdmin')
+angular.module('app')
   .controller('vipListCtrl', function () {
 
   });
+
+})();

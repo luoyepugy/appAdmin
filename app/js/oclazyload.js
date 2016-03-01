@@ -1,6 +1,8 @@
 
-"use strict"
-appAdmin
+(function() {
+    'use strict';
+
+angular.module('app')
 .constant("Modules_Config",[
     // {
     //     name:"ngTable",
@@ -18,11 +20,14 @@ appAdmin
     //     ]
     // }
 ])
-.config(["$ocLazyLoadProvider","Modules_Config",routeFn]);
-function routeFn($ocLazyLoadProvider,Modules_Config){
+.config(config);
+
+function config($ocLazyLoadProvider,Modules_Config){
     $ocLazyLoadProvider.config({
         debug:false,
         events:false,
         modules:Modules_Config
     });
 };
+
+})();

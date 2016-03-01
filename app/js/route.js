@@ -1,7 +1,9 @@
-"use strict"
-appAdmin.config(routeFn);
+(function() {
+    'use strict';
 
-function routeFn($stateProvider,$urlRouterProvider){
+angular.module('app').config(route);
+
+function route($stateProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise("/signin");
 
     $stateProvider
@@ -45,7 +47,7 @@ function routeFn($stateProvider,$urlRouterProvider){
                 return $ocLazyLoad.load("js/controllers/vipReview.js");
             }]
         }
-    })
+    });
     // .state("ngtree",{
     //     url:"/ngtree",
     //     templateUrl:"views/angular-tree-control.html",
@@ -62,3 +64,5 @@ function routeFn($stateProvider,$urlRouterProvider){
     //     }
     // })
 };
+
+})();
