@@ -1,0 +1,53 @@
+
+@import "../custom/custom";
+@import "../custom/mixin";
+
+// 主体结构样式
+.main {
+	width: 100%;
+}
+.container {
+	padding: 0;
+	width: 100%;
+}
+
+// 顶部菜单
+.top-nav {
+	@include skin-bgfg($main-orange, #fff);
+	line-height: 45px;
+}
+
+// 左边菜单
+.side {
+	padding: 0;
+}
+.side-menu {
+	a {
+		border-bottom: 1px solid #e7e7e7;
+		width: 100%;
+		padding: 10px 15px;
+		display: block;
+		color: $main-orange;
+		&:hover,
+		&.active {
+			background: #eee;
+		}
+	}
+}
+.side-childMenu {
+	a {
+		padding-left: 35px;
+	}
+}
+
+// 右边内容
+.content {
+	padding: 0;
+	border-left: 1px solid #e7e7e7;
+	min-height: 500px;
+}
+.crumbs {
+	line-height: 45px;
+	@include skin-bgfg(#eaeaea, #626262);
+	border-bottom: 1px solid #ccc;
+}

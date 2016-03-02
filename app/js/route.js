@@ -1,7 +1,8 @@
 (function() {
     'use strict';
 
-angular.module('app').config(route);
+angular.module('app')
+.config(route);
 
 function route($stateProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise("/signin");
@@ -12,7 +13,7 @@ function route($stateProvider,$urlRouterProvider){
         url:"/signin",
         templateUrl:"views/signin.html",
         controller:"signinCtrl",
-        controllerAs:"signin",
+        controllerAs:"vm",
         resolve:{
             deps:["$ocLazyLoad",function($ocLazyLoad){
                 return $ocLazyLoad.load("js/controllers/signin.js");
@@ -29,13 +30,12 @@ function route($stateProvider,$urlRouterProvider){
         url:"/vip-list",
         templateUrl:"views/vip/list.html",
         controller:"vipListCtrl",
-        controllerAs:"vipList",
+        controllerAs:"vm",
         resolve:{
             deps:["$ocLazyLoad",function($ocLazyLoad){
                 return $ocLazyLoad.load("js/controllers/vipList.js");
             }]
         }
-       
     })
     .state("admin.vip-review",{
         url:"/vip-review",

@@ -1,0 +1,17 @@
+
+@import "../custom/mixin";
+
+// 登录页面
+.signin {
+	width: 100%; 
+	padding-top: 50px;
+	@include position-centerV(300px);
+	background: rgba(0,0,0,.82);
+	color: #fff;
+	.title {
+		font-size: 28px;
+		text-align: center;
+		padding-top: 40px;
+		// color: #ff6c21;
+	}
+}

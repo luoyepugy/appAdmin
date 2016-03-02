@@ -5,11 +5,11 @@
 angular.module('app')
 .constant("Modules_Config",[
     // {
-    //     name:"ngTable",
-    //     module:true,
+    //     name:"services",
+    //     module:false,
     //     files:[
-    //         "Scripts/ng-table/dist/ng-table.min.css",
-    //         "Scripts/ng-table/dist/ng-table.min.js"
+    //         "js/common/services/message.service.js",
+    //         "js/common/services/validate.service.js"
     //     ]
     // },
     // {
