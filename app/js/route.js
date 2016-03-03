@@ -23,7 +23,14 @@ function route($stateProvider,$urlRouterProvider){
     // 主要结构
     .state('admin', {
         url: '/admin',
-        templateUrl: 'views/admin.html'
+        templateUrl: 'views/admin.html',
+        controller:"adminCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/admin.js");
+            }]
+        }
     })
     // vip
     .state("admin.vip-list",{
@@ -38,7 +45,7 @@ function route($stateProvider,$urlRouterProvider){
         }
     })
     .state("admin.vip-review",{
-        url:"/vip-review",
+        url:"/vip-review/:reviewId",
         templateUrl:"views/vip/review.html",
         controller:"vipReviewCtrl",
         controllerAs:"vipReview",

@@ -4,50 +4,81 @@
 
 // 主体结构样式
 .main {
-	width: 100%;
+    width: 100%;
+    @include link-basic($main-orange);
+    a.btn-default {
+        @include link(#333);
+    }
 }
 .container {
-	padding: 0;
-	width: 100%;
+    padding: 0;
+    width: 100%;
 }
 
 // 顶部菜单
 .top-nav {
-	@include skin-bgfg($main-orange, #fff);
-	line-height: 45px;
+    @include skin-bgfg($main-orange, #fff);
+    line-height: 45px;
+    .account {
+        padding: 0 15px;
+        cursor: pointer;
+        &:hover {
+            background: darken($main-orange, 10%);
+        }
+    }
+    .signout {
+        padding: 0 40px;
+        line-height: 30px;
+        @include skin-basic(#fff, #333, #ccc);
+        @include position-basic(absolute, right, 0, top, 45px);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        &:hover {
+            background: #f5f5f5;
+        }
+    }
 }
 
 // 左边菜单
 .side {
-	padding: 0;
+    padding: 0;
 }
 .side-menu {
-	a {
-		border-bottom: 1px solid #e7e7e7;
-		width: 100%;
-		padding: 10px 15px;
-		display: block;
-		color: $main-orange;
-		&:hover,
-		&.active {
-			background: #eee;
-		}
-	}
+    a {
+        width: 100%;
+        padding: 10px 15px;
+        display: block;
+        color: #777;
+        text-decoration: none;
+        &:hover {
+            @include skin-bgfg(#fff, $main-orange);
+        }
+    }
+}
+.side-menu > li {
+    border-bottom: 1px solid #e7e7e7;
+    & > a.active {
+       color: $main-orange; 
+    }
 }
 .side-childMenu {
-	a {
-		padding-left: 35px;
-	}
+    a {
+        padding-left: 40px;
+    }
+    a.active {
+        @include skin-bgfg(rgba(0,0,0,.3), #fff);
+    }
 }
 
 // 右边内容
 .content {
-	padding: 0;
-	border-left: 1px solid #e7e7e7;
-	min-height: 500px;
+    padding: 0;
+    border-left: 1px solid #e7e7e7;
+    min-height: 500px;
 }
-.crumbs {
-	line-height: 45px;
-	@include skin-bgfg(#eaeaea, #626262);
-	border-bottom: 1px solid #ccc;
+.content-title {
+    font-size: 20px;
+    padding: 20px 0;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e7e7e7;
 }

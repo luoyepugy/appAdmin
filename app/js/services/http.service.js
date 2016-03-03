@@ -27,11 +27,10 @@ angular.module('app')
             $http({
                 method: method, 
               　　url: host + url,
-                data: datas, 
-              　　headers: {'x-app-version': '0.0.1', 'x-access-token': token}
+                data: datas,
+              　　headers: {'x-access-token': token}
             })
             .success(function(response) {
-                $ionicLoading.hide();
                 if(response.status) {
                     deferred.resolve(response);
                 } else {
@@ -42,9 +41,9 @@ angular.module('app')
             })
             .error(function(data, status){
                 if(status === 401) {
-                    $state.go('login');
-                } else if (status === 403) {
-
+                    $state.go('signin');
+                } else if (status === 404) {
+                    // $state.go('404');
                 } else {
                     messageService.show('服务器请求失败');
                 }

@@ -35,10 +35,9 @@ angular.module('app')
                 // 提交表单数据
                 resultsDatas = validateService.submitData(attrs.form);
                 if(resultsDatas) {
-                    var method = attrs.method || 'POST',
-                        actionpath = attrs.actionpath || '/user';
+                    var method = attrs.method || 'POST';
                     
-                    httpService.getDatas(method, actionpath + attrs.action, resultsDatas)
+                    httpService.getDatas(method, '/backend' + attrs.action, resultsDatas)
                     // httpService.get(method, action, resultsDatas);
                     .then(function(data) {
                         $state.go(state);

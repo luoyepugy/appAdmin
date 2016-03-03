@@ -2,8 +2,13 @@
 (function() {
     'use strict';
 
+var value = {
+	'host': 'http://192.168.1.154:8083'
+}
+
 var app = angular.module("app",["ui.router","oc.lazyLoad"])
-.config(appConfig);
+	.config(appConfig)
+	.constant('config', value);
 
 function appConfig($provide,$compileProvider,$controllerProvider,$filterProvider){
     app.controller = $controllerProvider.register;

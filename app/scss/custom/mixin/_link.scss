@@ -33,7 +33,7 @@
 //
 // 参数为（文本原始颜色，鼠标放上后的颜色，文本修饰类型）
 //
-@mixin link-basic($original-color, $hover-color, $decoration-type: none) {
+@mixin link-basic($original-color, $hover-color: $original-color, $decoration-type: none) {
   a {
     color: $original-color;
 

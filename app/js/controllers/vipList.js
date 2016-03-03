@@ -11,14 +11,15 @@
 angular.module('app')
   .controller('vipListCtrl', vipListCtrl);
 
-  	function vipListCtrl() {
+  	function vipListCtrl(httpService) {
 	  	var vm = this;
 
-	  	vm.vipList = [
-		  	{'phone': '13008885781', 'isLocked': true, 'time': '2015-01-03'},
-		  	{'phone': '13008885781', 'isLocked': true, 'time': '2015-01-03'},
-		  	{'phone': '13008885781', 'isLocked': false, 'time': '2015-01-03'}
-	  	];
+	  	var userUrl = '/backend/user';
+
+	  	httpService.getDatas('GET', userUrl + '/findAll')
+	  		.then(function(data) {
+	  			vm.vipList = data.data;
+	  		});
   	};
 
 })();

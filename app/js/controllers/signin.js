@@ -4,7 +4,7 @@
 angular.module('app')
     .controller('signinCtrl', signinCtrl);
 
-    function signinCtrl($scope, validateService, $state) {
+    function signinCtrl($scope, validateService, $state, httpService) {
         var vm = this;
 
         vm.formData = {};
@@ -19,8 +19,14 @@ angular.module('app')
             // 提交表单数据
             var resultsDatas = validateService.submitData('.j-signinForm');
             if(resultsDatas) {
-            	console.log(resultsDatas);
-                $state.go('admin.vip-list');
+            	// console.log(resultsDatas);
+                httpService.getDatas('GET', '/backend/access/login/:' + resultsDatas.userName +'/:' + resultsDatas.password)
+                .then(function(data) {
+                    $state.go('admin.vip-list');
+                    window.localStorage.token = data.token;
+                    window.localStorage.userName = resultsDatas.userName;
+                });
+                
             }
         }
     };
