@@ -89,3 +89,15 @@
 .pagination {
     float: right;
 }
+.pagination>.active>a {
+    @include skin-basic($main-orange, #fff, $main-orange);
+    &:hover {
+        @include skin-basic(darken($main-orange, 10%), #fff, $main-orange);
+    }
+}
+.pagination>li>a {
+    color: #333;
+    &:hover {
+        color: $main-orange;
+    }
+}
