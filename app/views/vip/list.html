@@ -31,7 +31,7 @@
                     </a>
                     <span ng-click="gotoBatchDelete()" class="btn btn-default btn-xs">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                        <span class="hidden-xs" >删除</span>
+                        <span class="hidden-xs" ng-click="vm.deleteUser(item['_id'])">删除</span>
                     </span>
                 </td>
             </tr>
@@ -44,3 +44,13 @@
     </div>
     <!-- /分页 -->
 </div>
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">删除</h3>
+    </div>
+    <div class="modal-body">确定要删除吗？</div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="vm.deleteOk()">确定</button>
+        <button class="btn btn-default" type="button" ng-click="vm.deleteCancel()">取消</button>
+    </div>
+</script>
