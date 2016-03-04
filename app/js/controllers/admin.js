@@ -19,18 +19,16 @@ angular.module('app')
         // 菜单列表
         vm.menuList = [
             {'menuTitle': '会员管理', 'isOpen': true, 'childMenuList': [
-                {'childMenuTitle': '列表', 'state': 'admin.vip-list', 'isActive': true, 'menuIndex': 0},
-                {'childMenuTitle': '列表2', 'state': 'admin.vip-review', 'isActive': false, 'menuIndex': 0,}
+                {'childMenuTitle': '列表', 'state': 'admin.vip-list', 'isActive': true, 'menuIndex': 0}
                 ]
             },
             {'menuTitle': '订单管理', 'isOpen': false, 'childMenuList': [
-                {'childMenuTitle': '列表', 'state': 'admin.vip-list', 'isActive': false, 'menuIndex': 1},
-                {'childMenuTitle': '列表2', 'state': 'admin.vip-review', 'isActive': false, 'menuIndex': 1}
+                {'childMenuTitle': '列表', 'state': 'admin.order-list', 'isActive': false, 'menuIndex': 1},
                 ]
             },
             {'menuTitle': '权限管理', 'isOpen': false, 'childMenuList': [
-                {'childMenuTitle': '列表', 'state': 'admin.vip-list', 'isActive': false, 'menuIndex': 2},
-                {'childMenuTitle': '列表2', 'state': 'admin.vip-list', 'isActive': false, 'menuIndex': 2}
+                {'childMenuTitle': '列表', 'state': 'admin.auth-list', 'isActive': false, 'menuIndex': 2},
+                {'childMenuTitle': '角色', 'state': 'admin.auth-role', 'isActive': false, 'menuIndex': 2}
                 ]
             },
         ];

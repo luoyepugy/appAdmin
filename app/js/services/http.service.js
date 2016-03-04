@@ -16,20 +16,34 @@ angular.module('app')
                 // 主机名称，从配置中获取值
                 host = config.host,
                 // header上的token
-                token = '';
+                token = '',
+                // 请求的信息
+                req;  
 
             // 从localStorage中取出token
             if(window.localStorage.getItem('token') != null && window.localStorage.getItem('token') !== '') {
                 token = window.localStorage.getItem('token');
             }
 
+            // 请求的信息,默认为post请求
+            if(method === 'POST') {
+                req = {
+                    method: 'POST',
+                    url: host + url,
+                    headers: {'x-app-version': '0.0.1', 'x-access-token': token},
+                    data: datas
+                }; 
+            } else if(method === 'GET') {
+                req = {
+                    method: 'GET',
+                    url: host + url,
+                    headers: {'x-app-version': '0.0.1', 'x-access-token': token},
+                    params: datas
+                };
+            }
+
             // http请求
-            $http({
-                method: method, 
-              　　url: host + url,
-                data: datas, 
-              　　headers: {'x-app-version': '0.0.1', 'x-access-token': token}
-            })
+            $http(req)
             .success(function(response) {
                 if(response.status) {
                     deferred.resolve(response);

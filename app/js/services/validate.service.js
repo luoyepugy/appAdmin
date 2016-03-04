@@ -49,6 +49,13 @@ angular.module('app')
             if(datas.company != null && datas.company != '') {
                 datas.userProfile = {'company': datas.company };
             }
+            if(datas.ifAuditPass != null && datas.ifAuditPass != '') {
+                if(datas.ifAuditPass == 'true') {
+                    datas.ifAuditPass = true;
+                } else if(datas.ifAuditPass == 'false') {
+                    datas.ifAuditPass = false;
+                }
+            }
             // 判断表单填入数据格式
             if (datas.phone != null && phone_regexp.test(datas.phone) === false) {
                 messageService.show('请输入正确的手机号码格式');
