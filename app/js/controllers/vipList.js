@@ -1,13 +1,7 @@
 (function() {
     'use strict';
 
-/**
- * @ngdoc function
- * @name appAdminApp.controller:signinCtrl
- * @description
- * # signinCtrl
- * Controller of the appAdminApp
- */
+
 angular.module('app')
   .controller('vipListCtrl', vipListCtrl);
 
@@ -15,6 +9,12 @@ angular.module('app')
 	  	var vm = this;
 
 	  	var userUrl = '/backend/user';
+
+	  	vm.pagination = {
+	  		maxSize: 5,
+	  		bigTotalItems: 15,
+	  		bigCurrentPage: 1
+	  	};
 
 	  	httpService.getDatas('GET', userUrl + '/findAll')
 	  		.then(function(data) {

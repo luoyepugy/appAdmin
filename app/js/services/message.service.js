@@ -14,7 +14,7 @@ angular.module('app')
         
         function show(tips) {           
             if($('.alert-danger').length < 1) {
-                $('body').append('<div class="alert alert-danger" role="alert">' + tips +'</div>');
+                $('.messageBox').prepend('<div class="alert alert-danger" role="alert">' + tips +'</div>');
                 $timeout(function(){
                     $('.alert-danger').remove();
                 }, 3000);

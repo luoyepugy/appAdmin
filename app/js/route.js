@@ -35,6 +35,7 @@ function route($stateProvider,$urlRouterProvider){
     // vip
     .state("admin.vip-list",{
         url:"/vip-list",
+        cache: false,
         templateUrl:"views/vip/list.html",
         controller:"vipListCtrl",
         controllerAs:"vm",
@@ -48,7 +49,7 @@ function route($stateProvider,$urlRouterProvider){
         url:"/vip-review/:reviewId",
         templateUrl:"views/vip/review.html",
         controller:"vipReviewCtrl",
-        controllerAs:"vipReview",
+        controllerAs:"vm",
         resolve:{
             deps:["$ocLazyLoad",function($ocLazyLoad){
                 return $ocLazyLoad.load("js/controllers/vipReview.js");

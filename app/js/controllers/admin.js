@@ -5,16 +5,16 @@
 angular.module('app')
     .controller('adminCtrl', adminCtrl);
   	
-  	function adminCtrl() {
+  	function adminCtrl($state) {
   		var vm = this;
 
-        vm.isExit = false;
-        vm.account = account;
-        vm.signout = signout;
-        vm.menu = menu;
-        vm.childMenu = childMenu;
+        vm.isOpen = false;          // 顶部导航右侧账号下拉菜单状态
+        vm.signout = signout;       // 退出账号
+        vm.menu = menu;             // 左侧一级菜单
+        vm.childMenu = childMenu;   // 左侧二级菜单
 
-        // vm.userName = window.localStroge.getItem('userName');
+        // 当前用户名称
+        vm.userName = window.localStorage.getItem('userName');
 
         // 菜单列表
         vm.menuList = [
@@ -59,13 +59,8 @@ angular.module('app')
         }
         // 退出账号
         function signout() {
-            // window.localStroge.clear();
-            // $state('signin');
-            console.log('signout')
-        }
-        // 点击账号按钮
-        function account() {
-            vm.isExit = !vm.isExit;
+            window.localStorage.clear();
+            $state.go('signin');
         }
   	}
 
