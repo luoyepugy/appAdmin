@@ -32,7 +32,7 @@ function route($stateProvider,$urlRouterProvider){
             }]
         }
     })
-    // vip
+    // vip会员
     .state("admin.vip-list",{
         url:"/vip-list",
         cache: false,
@@ -45,17 +45,41 @@ function route($stateProvider,$urlRouterProvider){
             }]
         }
     })
-    .state("admin.vip-review",{
-        url:"/vip-review/:reviewId",
-        templateUrl:"views/vip/review.html",
-        controller:"vipReviewCtrl",
+    .state("admin.vip-edit",{
+        url:"/vip-edit/:vipId",
+        templateUrl:"views/vip/edit.html",
+        controller:"vipEditCtrl",
         controllerAs:"vm",
         resolve:{
             deps:["$ocLazyLoad",function($ocLazyLoad){
-                return $ocLazyLoad.load("js/controllers/vipReview.js");
+                return $ocLazyLoad.load("js/controllers/vipEdit.js");
             }]
         }
-    });
+    })
+    // order订单
+    .state("admin.order-list",{
+        url:"/order-list/:orderId",
+        cache: false,
+        templateUrl:"views/order/list.html",
+        controller:"orderListCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/orderList.js");
+            }]
+        }
+    })
+    .state("admin.order-edit",{
+        url:"/order-edit",
+        templateUrl:"views/order/edit.html",
+        controller:"orderEditCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/orderEdit.js");
+            }]
+        }
+    })
     // .state("ngtree",{
     //     url:"/ngtree",
     //     templateUrl:"views/angular-tree-control.html",
