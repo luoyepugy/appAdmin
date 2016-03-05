@@ -95,21 +95,51 @@ function route($stateProvider,$urlRouterProvider){
             }]
         }
     })
-    // .state("ngtree",{
-    //     url:"/ngtree",
-    //     templateUrl:"views/angular-tree-control.html",
-    //     controller:"ngTreeCtrl",
-    //     controllerAs:"ngtree",
-    //     resolve:{
-    //         deps:["$ocLazyLoad",function($ocLazyLoad){
-    //             return $ocLazyLoad.load("treeControl").then(
-    //                 function(){
-    //                     return $ocLazyLoad.load("js/controllers/angular-tree-control.js");
-    //                 }
-    //             );
-    //         }]
-    //     }
-    // })
+    // auth权限
+    .state("admin.auth-list",{
+        url:"/order-list",
+        templateUrl:"views/auth/list.html",
+        controller:"authListCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/authList.js");
+            }]
+        }
+    })
+    .state("admin.auth-listEdit",{
+        url:"/auth-listEdit/:orderId",
+        templateUrl:"views/auth/list-edit.html",
+        controller:"authListEditCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/authListEdit.js");
+            }]
+        }
+    })
+    .state("admin.auth-role",{
+        url:"/auth-role",
+        templateUrl:"views/auth/role.html",
+        controller:"authRoleCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/authRole.js");
+            }]
+        }
+    })
+    .state("admin.auth-roleEdit",{
+        url:"/auth-roleEdit",
+        templateUrl:"views/auth/role-edit.html",
+        controller:"authRoleEditCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/authRoleEdit.js");
+            }]
+        }
+    });
 };
 
 })();
