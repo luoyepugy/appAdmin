@@ -36,7 +36,6 @@ angular.module('app')
                 resultsDatas = validateService.submitData(attrs.form);
                 if(resultsDatas) {
                     var method = attrs.method || 'POST';
-                    console.log(resultsDatas);
 
                     httpService.getDatas(method, '/backend' + attrs.action, resultsDatas)
                     // httpService.get(method, action, resultsDatas);

@@ -86,7 +86,6 @@ function route($stateProvider,$urlRouterProvider){
     })
     .state("admin.order-offerList",{
         url:"/order-offerList/:orderId",
-        cache: false,
         templateUrl:"views/order/offer-list.html",
         controller:"orderOfferListCtrl",
         controllerAs:"vm",
