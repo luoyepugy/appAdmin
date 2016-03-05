@@ -1,0 +1,55 @@
+
+<div class="content-title">订单管理</div>
+<div class="table-responsive p20">
+    <!-- 报价订单详情 -->
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>订单号</th>
+                <th>类型</th>
+                <th>用户名</th>
+                <th>公司</th>
+                <th>已审核</th>
+                <th>已禁用</th>
+                <th>单价</th>
+                <th>总价</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vm.orderOfferList">
+                <td>{{item['_id']}}</td>
+                <td>{{item.user.userType}}</td>
+                <td>{{item.user.phone}}</td>
+                <td>{{item.user.userProfile.company}}</td>
+                <td>
+                    <span class="glyphicon glyphicon-ok" ng-class="{true: 'glyphicon-ok', false: 'glyphicon-remove'}[item.user.ifAuditPass]"></span>
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-ok" ng-class="{true: 'glyphicon-ok', false: 'glyphicon-remove'}[item.user.isLockout]"></span>
+                </td>
+                <td>{{item.unitPrice}}</td>
+                <td>{{item.sumPrice}}</td>
+                <td>{{item.createdOn | date:'yyyy-MM-dd'}}</td>
+                <td>
+                    <span class="btn btn-default btn-xs" ng-click="vm.deleteOffer(item['_id'])">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        <span class="hidden-xs">删除</span>
+                    </span>
+                </td>
+            </tr>
+        </tbody>    
+    </table>
+    <!-- /报价订单详情 -->
+</div>
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">删除</h3>
+    </div>
+    <div class="modal-body">确定要删除吗？</div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="deleteOk()">确定</button>
+        <button class="btn btn-default" type="button" ng-click="deleteCancel()">取消</button>
+    </div>
+</script>

@@ -6,55 +6,52 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">订单号</label>
             <div class="col-sm-8">
-                <input type="text" name="phone" class="form-control" value="{{vm.orderDetail['_id']}}" disabled />
+                <input type="text" name="orderId" class="form-control" value="{{vm.orderDetail['_id']}}" disabled />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">名称</label>
             <div class="col-sm-8">
-                <input type="text" name="company" class="form-control" value="{{vm.orderDetail.productName}}" disabled />
+                <input type="text" name="productName" class="form-control" value="{{vm.orderDetail.productName}}" disabled />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">数量</label>
             <div class="col-sm-8">
-                <input type="text" name="userType" class="form-control" value="{{vm.orderDetail.productAmount}}" disabled />
+                <input type="text" name="productAmount" class="form-control" value="{{vm.orderDetail.productAmount}}" disabled />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">单位</label>
             <div class="col-sm-8">
-                <input type="text" name="userType" class="form-control" value="{{vm.orderDetail.productUnit}}" disabled />
+                <input type="text" name="productUnit" class="form-control" value="{{vm.orderDetail.productUnit}}" disabled />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">单价</label>
             <div class="col-sm-8">
-                <input type="text" name="userType" class="form-control" value="{{vm.orderDetail.unitPrice}}" disabled />
+                <input type="text" name="unitPrice" class="form-control" value="{{vm.orderDetail.unitPrice}}" disabled />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">总价</label>
             <div class="col-sm-8">
-                <input type="text" name="userType" class="form-control" value="{{vm.orderDetail.sumPrice}}" disabled />
+                <input type="text" name="sumPrice" class="form-control" value="{{vm.orderDetail.sumPrice}}" disabled />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">采购地点</label>
             <div class="col-sm-8">
-                <input type="text" name="userType" class="form-control" value="{{vm.orderDetail.shipAddress}}" disabled />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">采购地点</label>
-            <div class="col-sm-8">
-                <input type="text" name="userType" class="form-control" value="{{vm.orderDetail.shipAddress}}" disabled />
+                <input type="text" name="shipAddress" class="form-control" value="{{vm.orderDetail.shipAddress}}" disabled />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">状态</label>
             <div class="col-sm-8">
-                <input type="text" name="userType" class="form-control" value="{{vm.orderDetail.state}}" disabled />
+                <select class="form-control" name="state" 
+                    ng-options="option.value for option in vm.orderDetail.stateSets track by option.value" 
+                    ng-model="vm.orderDetail.state">
+                </select>
             </div>
         </div>
         <div class="form-group">
@@ -63,10 +60,9 @@
                 <input type="text" name="createOn" class="form-control" value="{{vm.orderDetail.createdOn | date: 'yyyy-mm-dd'}}" disabled />
             </div>
         </div>
-        <input type="hidden" name="id" value="{{vm.orderDetail['_id']}}">
         <div class="form-group">
             <div class="col-sm-offset-2">
-                <submit-button class="ml15" action="/order/changeOrderState" state="admin.vip-list" form=".j-orderEditForm"></submit-button>
+                <submit-button class="ml15" action="/order/changeOrderState" state="admin.order-list" form=".j-orderEditForm"></submit-button>
             </div>
         </div>
     </form>

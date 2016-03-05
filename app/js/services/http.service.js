@@ -49,6 +49,7 @@ angular.module('app')
                     deferred.resolve(response);
                 } else {
                     if(response.errMsg != null && response.errMsg !== '') {
+                        console.log(response.errMsg);
                         messageService.show(response.errMsg);
                     }
                 }

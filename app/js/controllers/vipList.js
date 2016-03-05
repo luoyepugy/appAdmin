@@ -5,7 +5,7 @@
 angular.module('app')
   .controller('vipListCtrl', vipListCtrl);
 
-  	function vipListCtrl(httpService, $uibModal, $log) {
+  	function vipListCtrl(httpService) {
 	  	var vm = this;
 
 	  	var userUrl = '/backend/user';

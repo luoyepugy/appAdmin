@@ -18,7 +18,7 @@ function appConfig($provide,$compileProvider,$controllerProvider,$filterProvider
     app.service  =$provide.service;
     app.constant = $provide.constant;
 
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    // delete $httpProvider.defaults.headers.common['X-Requested-With'];
 };
 
 })();

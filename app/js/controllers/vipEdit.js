@@ -11,6 +11,8 @@ angular.module('app')
         var userUrl = '/backend/user',
             id = $stateParams.vipId;
 
+        vm.vipDetail = {};
+
         load();
 
         // 初次加载

@@ -58,25 +58,41 @@ function route($stateProvider,$urlRouterProvider){
     })
     // order订单
     .state("admin.order-list",{
-        url:"/order-list/:orderId",
+        url:"/order-list",
         cache: false,
         templateUrl:"views/order/list.html",
         controller:"orderListCtrl",
         controllerAs:"vm",
         resolve:{
             deps:["$ocLazyLoad",function($ocLazyLoad){
-                return $ocLazyLoad.load("js/controllers/orderList.js");
+                return $ocLazyLoad.load("js/filters/order-offerShow.filter.js").then(
+                    function(){
+                        return $ocLazyLoad.load("js/controllers/orderList.js");
+                    }
+                );
             }]
         }
     })
     .state("admin.order-edit",{
-        url:"/order-edit",
+        url:"/order-edit/:orderId",
         templateUrl:"views/order/edit.html",
         controller:"orderEditCtrl",
         controllerAs:"vm",
         resolve:{
             deps:["$ocLazyLoad",function($ocLazyLoad){
                 return $ocLazyLoad.load("js/controllers/orderEdit.js");
+            }]
+        }
+    })
+    .state("admin.order-offerList",{
+        url:"/order-offerList/:orderId",
+        cache: false,
+        templateUrl:"views/order/offer-list.html",
+        controller:"orderOfferListCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/orderOfferList.js");
             }]
         }
     })
