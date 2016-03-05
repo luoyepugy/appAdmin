@@ -44,7 +44,7 @@ angular.module('app')
 
             // http请求
             $http(req)
-            .success(function(response) {
+            .success(function(response, status) {
                 if(response.status) {
                     deferred.resolve(response);
                 } else {
@@ -53,8 +53,10 @@ angular.module('app')
                     }
                 }
             })
-            .error(function(data, status){
+            .error(function(error, status){
+                console.log(status);
                 if(status === 401) {
+                    console.log('401');
                     $state.go('signin');
                 } else if (status === 403) {
 

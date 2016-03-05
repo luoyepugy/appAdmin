@@ -41,11 +41,7 @@ function route($stateProvider,$urlRouterProvider){
         controllerAs:"vm",
         resolve:{
             deps:["$ocLazyLoad",function($ocLazyLoad){
-                return $ocLazyLoad.load("js/controllers/ModalInstanceCtrl.js").then(
-                    function(){
-                        return $ocLazyLoad.load("js/controllers/vipList.js");
-                    }
-                );
+                return $ocLazyLoad.load("js/controllers/vipList.js");
             }]
         }
     })
