@@ -1,0 +1,25 @@
+
+<div class="content-title">权限管理</div>
+<div class="container">
+    <!-- 表单 -->
+    <form class="form-horizontal j-addAdminForm">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-8">
+                <input type="text" name="userName" class="form-control" ng-model="vm.addAdmin.userName" value="{{vm.addAdmin.userName}}" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-8">
+                <input type="password" name="password" class="form-control" ng-model="vm.addAdmin.password" value="{{vm.addAdmin.password}}" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <submit-button class="ml15" action="/admin/create" state="admin.auth-list" form=".j-addAdminForm"></submit-button>
+            </div>
+        </div>
+    </form>
+    <!-- /表单 -->
+</div>

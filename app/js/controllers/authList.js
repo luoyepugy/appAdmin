@@ -8,28 +8,37 @@ angular.module('app')
   	function authListCtrl(httpService) {
 	  	var vm = this;
 
-	  	// var userUrl = '/backend/user';
+	  	var adminUrl = '/backend/admin';
 
-	  	// vm.pageChange = pageChange;
+	  	vm.pageChange = pageChange;
+	  	vm.addAdmin = addAdmin;
 
-	  	// vm.pagination = {
-	  	// 	maxSize: 5,
-	  	// 	bigTotalItems: 15,
-	  	// 	bigCurrentPage: 1
-	  	// };
+	  	vm.pagination = {
+	  		maxSize: 5,
+	  		bigTotalItems: 15,
+	  		bigCurrentPage: 1
+	  	};
 
 	  	load();
 	  	// 页面加载
 	  	function load() {
-	  		// httpService.getDatas('GET', userUrl + '/findAll')
-	  		// .then(function(data) {
-	  		// 	vm.authList = data.data;
-	  		// });
+	  		httpService.getDatas('GET', adminUrl + '/findAll')
+	  		.then(function(data) {
+	  			vm.authList = data.data;
+	  		});
 	  	}
 
 	  	// 分页
 	  	function pageChange () {
 	  		// console.log('page' + vm.pagination.bigCurrentPage);
+	  	}
+
+	  	// 新增管理员
+	  	function addAdmin() {
+	  		httpService.getDatas('GET', adminUrl + '/creat')
+	  		.then(function(data) {
+	  			vm.authList = data.data;
+	  		});
 	  	}
 
   	};

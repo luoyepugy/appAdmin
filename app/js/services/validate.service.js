@@ -56,6 +56,13 @@ angular.module('app')
                     datas.ifAuditPass = false;
                 }
             }
+            if(datas.isLockout != null && datas.isLockout != '') {
+                if(datas.isLockout == 'true') {
+                    datas.isLockout = true;
+                } else if(datas.isLockout == 'false') {
+                    datas.isLockout = false;
+                }
+            }
             // 判断表单填入数据格式
             if (datas.phone != null && phone_regexp.test(datas.phone) === false) {
                 messageService.show('请输入正确的手机号码格式');
