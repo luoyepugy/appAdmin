@@ -43,6 +43,7 @@ angular.module('app')
                         $state.go(state);
                         if(login === 'true') {
                             $window.localStorage.token = data.token;
+                            window.localStorage.userName = resultsDatas.userName;
                         }
                     });
                 }

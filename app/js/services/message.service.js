@@ -17,7 +17,7 @@ angular.module('app')
                 $('.messageBox').prepend('<div class="alert alert-danger" role="alert">' + tips +'</div>');
                 $timeout(function(){
                     $('.alert-danger').remove();
-                }, 3000);
+                }, 5000);
             }
         };
     };

@@ -33,7 +33,7 @@
                 <td>{{item.sumPrice}}</td>
                 <td>{{item.createdOn | date:'yyyy-MM-dd'}}</td>
                 <td>
-                    <span class="btn btn-default btn-xs" ng-click="vm.deleteOffer(item['_id'])">
+                    <span class="btn btn-default btn-xs" ng-click="vm.deleteOffer(item['_id'], $index)">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                         <span class="hidden-xs">删除</span>
                     </span>
@@ -45,7 +45,7 @@
 </div>
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
-        <h3 class="modal-title">删除</h3>
+        <h3 class="modal-title">删除报价</h3>
     </div>
     <div class="modal-body">确定要删除吗？</div>
     <div class="modal-footer">

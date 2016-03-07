@@ -34,11 +34,16 @@ angular.module('app')
                     data: datas
                 }; 
             } else if(method === 'GET') {
+                // get方式请求路径，将参数连接起来
+                var getUrl = host + url;
+                for(var i in datas) {
+                    getUrl += '/' + datas[i]; 
+                }
                 req = {
                     method: 'GET',
-                    url: host + url,
-                    headers: {'x-app-version': '0.0.1', 'x-access-token': token},
-                    params: datas
+                    url: getUrl,
+                    headers: {'x-app-version': '0.0.1', 'x-access-token': token}
+                    // params: datas
                 };
             }
 

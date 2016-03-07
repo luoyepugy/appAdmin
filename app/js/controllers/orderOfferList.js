@@ -1,7 +1,6 @@
 (function() {
     'use strict';
 
-var deleteId;
 
 angular.module('app')
   .controller('orderOfferListCtrl', orderOfferListCtrl);
@@ -24,8 +23,7 @@ angular.module('app')
         }
 
         // 删除用户
-        function deleteOffer(id) {
-            deleteId = id;
+        function deleteOffer(deleteId, deleteIndex) {
 
             var modalInstance = $uibModal.open({
                 animation: true,
@@ -33,13 +31,14 @@ angular.module('app')
                 controller: 'ModalInstanceCtrl',
                 size: 'sm'
             });
-            modalInstance.result.then(function (deleteId) {
+            modalInstance.result.then(function () {
                 // 删除操作
                 httpService.getDatas('POST', orderUrl + '/removeQuotation', {'quotationId': deleteId})
                 .then(function() {
-                    console.log(deleteId);
+                    vm.orderOfferList.splice(deleteIndex,1);
                 });
             }, function () {
+                // console.log(deleteId + '/' + deleteIndex);
                 $log.info('Modal dismissed at: ' + new Date());
             });
         };
@@ -57,7 +56,7 @@ angular.module('app')
         $scope.deleteCancel = deleteCancel;
 
         function deleteOk() {
-            $uibModalInstance.close(deleteId);
+            $uibModalInstance.close('deleteOk');
         }
         function deleteCancel() {
             $uibModalInstance.dismiss('deleteCancel');

@@ -11,14 +11,7 @@ function route($stateProvider,$urlRouterProvider){
     // 登录
     .state("signin",{
         url:"/signin",
-        templateUrl:"views/signin.html",
-        controller:"signinCtrl",
-        controllerAs:"vm",
-        resolve:{
-            deps:["$ocLazyLoad",function($ocLazyLoad){
-                return $ocLazyLoad.load("js/controllers/signin.js");
-            }]
-        }
+        templateUrl:"views/signin.html"
     })
     // 主要结构
     .state('admin', {
