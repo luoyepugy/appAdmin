@@ -25,11 +25,7 @@ function route($stateProvider,$urlRouterProvider){
             }]
         }
     })
-    // 修改密码
-    .state('admin.changePwd', {
-        url: '/admin-changePwd',
-        templateUrl: 'views/changePwd.html'
-    })
+
     // vip会员
     .state("admin.vip-list",{
         url:"/vip-list",
@@ -54,6 +50,7 @@ function route($stateProvider,$urlRouterProvider){
             }]
         }
     })
+
     // order订单
     .state("admin.order-list",{
         url:"/order-list",
@@ -93,6 +90,7 @@ function route($stateProvider,$urlRouterProvider){
             }]
         }
     })
+
     // auth权限
     .state("admin.auth-list",{
         url:"/auth-list",
@@ -117,6 +115,17 @@ function route($stateProvider,$urlRouterProvider){
             }]
         }
     })
+    .state('admin.auth-changePwd', {
+        url: '/auth-changePwd/:userName',
+        templateUrl: 'views/auth/changePwd.html',
+        controller:"authChangePwdCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/authChangePwd.js");
+            }]
+        }
+    })
     .state("admin.auth-addAdmin",{
         url:"/auth-addAdmin",
         templateUrl:"views/auth/add-admin.html"
@@ -134,7 +143,8 @@ function route($stateProvider,$urlRouterProvider){
         }
     })
     .state("admin.auth-roleEdit",{
-        url:"/auth-roleEdit",
+        url:"/auth-roleEdit/:roleId",
+        cache: false,
         templateUrl:"views/auth/role-edit.html",
         controller:"authRoleEditCtrl",
         controllerAs:"vm",

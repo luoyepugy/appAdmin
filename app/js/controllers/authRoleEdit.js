@@ -5,33 +5,53 @@
 angular.module('app')
   .controller('authRoleEditCtrl', authRoleEditCtrl);
 
-  	function authRoleEditCtrl(httpService) {
-	  	var vm = this;
+    function authRoleEditCtrl(httpService, $stateParams) {
+        var vm = this;
 
-	  	// var userUrl = '/backend/user';
+        var roleEditUrl = '/backend/role',
+            roleId = $stateParams.roleId;
 
-	  	// vm.pageChange = pageChange;
+        // vm.inferfaceList = [];
 
-	  	// vm.pagination = {
-	  	// 	maxSize: 5,
-	  	// 	bigTotalItems: 15,
-	  	// 	bigCurrentPage: 1
-	  	// };
+        vm.setInterface = setInterface;
+        vm.setMenu = vm.setMenu;
 
-	  	load();
-	  	// 页面加载
-	  	function load() {
-	  		// httpService.getDatas('GET', userUrl + '/findAll')
-	  		// .then(function(data) {
-	  		// 	vm.authRoleEdit = data.data;
-	  		// });
-	  	}
+        load();
+        // 页面加载
+        function load() {
+            // 获取当前角色信息
+            httpService.getDatas('GET', roleEditUrl + '/findOne/' + roleId)
+            .then(function(data) {
+                vm.roleDetail = data.data;
+                console.log(vm.roleDetail.interfaceList);
+            });
+            // 获取所有接口
+            httpService.getDatas('GET', '/backend/access/getAllInferfaces')
+            .then(function(data) {
+                vm.inferfaceList = data;
+            });
+        }
 
-	  	// 分页
-	  	function pageChange () {
-	  		// console.log('page' + vm.pagination.bigCurrentPage);
-	  	}
+        function setInterface() {
+            var interfaceList = [];
+            for(var i in vm.checkedInterfaces) {
+                if(vm.checkedInterfaces[i]) {
+                    interfaceList.push(i);
+                }
+            }
+            httpService.getDatas('POST', roleEditUrl + '/setInterfaceList', {'id': roleId, 'interfaceList':interfaceList})
+            .then(function(data) {
 
-  	};
+            });
+        }
+
+        function setMenu() {
+            httpService.getDatas('POST', roleEditUrl + '/setMenuList')
+            .then(function(data) {
+
+            });
+        }
+
+    };
 
 })();

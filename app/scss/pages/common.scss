@@ -14,10 +14,15 @@
     }
 }
 
+// 添加按钮
 .btn-add {
     text-align: right;
     width: 100%;
     padding-right: 20px;
+}
+// chekbox列表
+.checkboxList {
+    // @include inline-block;
 }
 
 // 主体结构样式

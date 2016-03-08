@@ -36,8 +36,10 @@ angular.module('app')
             } else if(method === 'GET') {
                 // get方式请求路径，将参数连接起来
                 var getUrl = host + url;
-                for(var i in datas) {
-                    getUrl += '/' + datas[i]; 
+                if(datas != null && datas != '') {
+                    for(var i in datas) {
+                        getUrl += '/' + datas[i]; 
+                    }
                 }
                 req = {
                     method: 'GET',
@@ -50,7 +52,7 @@ angular.module('app')
             // http请求
             $http(req)
             .success(function(response, status) {
-                if(response.status) {
+                if(response) {
                     deferred.resolve(response);
                 } else {
                     if(response.errMsg != null && response.errMsg !== '') {
