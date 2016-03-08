@@ -23,15 +23,15 @@ angular.module('app')
             httpService.getDatas('GET', roleEditUrl + '/findOne/' + roleId)
             .then(function(data) {
                 vm.roleDetail = data.data;
-                console.log(vm.roleDetail.interfaceList);
             });
             // 获取所有接口
             httpService.getDatas('GET', '/backend/access/getAllInferfaces')
             .then(function(data) {
-                vm.inferfaceList = data;
+                vm.interfaceList = data;
             });
         }
 
+        // 设置接口权限
         function setInterface() {
             var interfaceList = [];
             for(var i in vm.checkedInterfaces) {
@@ -39,12 +39,12 @@ angular.module('app')
                     interfaceList.push(i);
                 }
             }
-            httpService.getDatas('POST', roleEditUrl + '/setInterfaceList', {'id': roleId, 'interfaceList':interfaceList})
+            httpService.getDatas('POST', roleEditUrl + '/setInterfaceList', {'id': roleId, 'inferfaceList':interfaceList})
             .then(function(data) {
 
             });
         }
-
+        // 设置菜单权限
         function setMenu() {
             httpService.getDatas('POST', roleEditUrl + '/setMenuList')
             .then(function(data) {
