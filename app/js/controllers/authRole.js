@@ -5,7 +5,7 @@
 angular.module('app')
   .controller('authRoleCtrl', authRoleCtrl);
 
-  	function authRoleCtrl(httpService) {
+  	function authRoleCtrl(httpService, messageService) {
 	  	var vm = this;
 
 	  	var roleUrl = '/backend/role';

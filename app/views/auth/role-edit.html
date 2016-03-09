@@ -13,13 +13,13 @@
             <label for="inputLockout" class="col-sm-2 control-label">接口权限</label>
             <div class="col-sm-8">
                 <div>
-                    <label><input type="checkbox">全选</label>
+                    <label><input type="checkbox" ng-model="vm.checkedAll" ng-click="vm.choiceAll()">全选</label>
                 </div>
                 <li class="checkboxList form-control" ng-repeat="item in vm.interfaceList">
                     <label class="mr10"><input name="interfaceList" type="checkbox" ng-model="vm.checkedInterfaces[item.route]" value="{{item.route}}">{{item.route}}</label>
                 </li>
                 <div class="none">{{vm.checkedInterfaces}}</div>
-                <div class="btn btn-default mt10" ng-click="vm.setInterface()">设置接口权限</div>
+                <div class="btn btn-default mt10" ng-click="vm.setInterface()">保存接口权限设置</div>
             </div>
         </div>
         <div class="form-group">
@@ -29,7 +29,7 @@
                     <input name="{{item}}" type="checkbox" class="form-control" value="{{item}}">
                     <span class="mr10">{{item}}</span>
                 </li>
-                <div class="btn btn-default" ng-click="vm.setMenu()">设置菜单权限</div>
+                <div class="btn btn-default" ng-click="vm.setMenu()">保存菜单权限设置</div>
             </div>
         </div>
     </form>
