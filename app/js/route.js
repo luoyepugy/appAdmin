@@ -116,7 +116,7 @@ function route($stateProvider,$urlRouterProvider){
         }
     })
     .state("admin.auth-roleDeploy",{
-        url:"/auth-roleDeploy/:adminId",
+        url:"/auth-roleDeploy/:adminId/:userName",
         templateUrl:"views/auth/role-deploy.html",
         controller:"authRoleDeployCtrl",
         controllerAs:"vm",

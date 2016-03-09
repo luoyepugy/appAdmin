@@ -3,23 +3,23 @@
     <!-- 顶部导航 -->
     <div class="top-nav col-xs-12">
         <div class="f16 pull-left">采购宝后台管理系统</div>
-      <!-- 账号 -->
-      <div class="btn-group pull-right" uib-dropdown is-open="vm.isopen">
-        <div id="single-button" type="button" class="account" uib-dropdown-toggle ng-disabled="disabled">
-          <i class="glyphicon glyphicon-user mr5"></i>{{vm.userName}}<span class="caret ml5"></span>
+        <!-- 账号 -->
+        <div class="btn-group pull-right" uib-dropdown is-open="vm.isopen">
+            <div id="single-button" type="button" class="account" uib-dropdown-toggle ng-disabled="disabled">
+                <i class="glyphicon glyphicon-user mr5"></i>{{vm.userName}}<span class="caret ml5"></span>
+            </div>
+            <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                <li role="menuitem" ng-click="vm.signout()"><a href="#"><i class="glyphicon glyphicon-log-out mr5"></i>退出</a></li>
+            </ul>
         </div>
-        <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
-          <li role="menuitem" ng-click="vm.signout()"><a href="#"><i class="glyphicon glyphicon-log-out mr5"></i>退出</a></li>
-        </ul>
-      </div>
-      <!-- /账号 -->
+        <!-- /账号 -->
     </div>
     <!-- /顶部导航 -->
     <!-- 侧边菜单 -->
     <div class="side col-sm-2">
         <ul class="side-menu">
             <li ng-repeat="item in menuList">
-                <a href="javascript:;" ng-class="{true: 'active', false: ''}[item.isOpen]" ng-click="vm.menu($index)">{{item.title}}
+                <a href="javascript:;" ng-click="vm.menu($index)" ng-class="{true: 'active', false: ''}[item.isOpen]">{{item.title}}
                     <span class="pull-right glyphicon arrow glyphicon-menu-right" ng-class="{true: 'glyphicon-menu-down', false: ''}[item.isOpen]"></span>
                 </a>
                 <ul class="side-childMenu" ng-if="{true: true, false: false}[item.isOpen]">

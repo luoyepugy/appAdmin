@@ -6,13 +6,7 @@
 .nav, .pagination, .carousel, .panel-title a { 
     cursor: pointer; 
 }
-.main {
-    .panel-title {
-        a {
-            display: block;
-        }
-    }
-}
+// bootstrap
 .form-horizontal .form-group {
     margin-left: 0;
     margin-right: 0;
@@ -53,7 +47,8 @@
 // 顶部菜单
 .top-nav {
     @include skin-bgfg($main-orange, #fff);
-    line-height: 45px;
+    line-height: 50px;
+    padding: 0 20px;
     .account {
         padding: 0 15px;
         cursor: pointer;

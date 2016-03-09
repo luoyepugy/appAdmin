@@ -33,7 +33,7 @@
                         <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                         <span class="hidden-xs">修改密码</span>
                     </a>
-                    <a ui-sref="admin.auth-roleDeploy({adminId: item['_id']})" class="btn btn-default btn-xs">
+                    <a ui-sref="admin.auth-roleDeploy({adminId: item['_id'], userName: item.userName})" class="btn btn-default btn-xs">
                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         <span class="hidden-xs">配置角色</span>
                     </a>

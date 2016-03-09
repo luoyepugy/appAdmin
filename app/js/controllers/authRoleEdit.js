@@ -43,7 +43,7 @@ angular.module('app')
             // 获取所有接口
             httpService.getDatas('GET', '/backend/access/getAllInterfaces')
             .then(function(data) {
-                vm.interfaceList = data;
+                vm.interfaceList = data.data;
             });
 
             // 获取菜单列表
@@ -133,11 +133,11 @@ angular.module('app')
             }
             console.log(vm.checkedMenus);
             console.log(menuList);
-            // httpService.getDatas('POST', roleEditUrl + '/setMenuList', {'id': roleId, 'menuList':menuList})
-            // .then(function(data) {
-            //     menuList = [];
-            //     messageService.show('菜单权限修改成功', true);
-            // });
+            httpService.getDatas('POST', roleEditUrl + '/setMenuList', {'id': roleId, 'menuList':menuList})
+            .then(function(data) {
+                menuList = [];
+                messageService.show('菜单权限修改成功', true);
+            });
         }
 
     };

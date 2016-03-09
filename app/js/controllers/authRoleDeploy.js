@@ -23,7 +23,7 @@ angular.module('app')
 	  		.then(function(data) {
 	  			vm.authRoleDeploy = data.data;
 	  		});
-	  		httpService.getDatas('GET', adminUrl + '/getCompletelyInfos/' + 'test')
+	  		httpService.getDatas('GET', adminUrl + '/getCompletelyInfos/' + adminId)
 	  		.then(function(data) {
 	  			var datas = data.data,
                     length = datas.role.length;
