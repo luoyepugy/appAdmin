@@ -10,7 +10,6 @@ angular.module('app')
 
 	  	// 修改密码的用户名
 	  	vm.userName = $stateParams.userName;
-
   	};
 
 })();

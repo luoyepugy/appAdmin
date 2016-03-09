@@ -105,7 +105,7 @@ function route($stateProvider,$urlRouterProvider){
         }
     })
     .state("admin.auth-listEdit",{
-        url:"/auth-listEdit/:userName",
+        url:"/auth-listEdit/:adminId",
         templateUrl:"views/auth/list-edit.html",
         controller:"authListEditCtrl",
         controllerAs:"vm",

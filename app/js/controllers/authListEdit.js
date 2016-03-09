@@ -9,12 +9,12 @@ angular.module('app')
 	  	var vm = this;
 
 	  	var adminUrl = '/backend/admin',
-	  		userName = $stateParams.userName;
+	  		adminId = $stateParams.adminId;
 
 	  	load();
 	  	// 页面加载
 	  	function load() {
-	  		httpService.getDatas('GET', adminUrl + '/getCompletelyInfos/' + userName)
+	  		httpService.getDatas('GET', adminUrl + '/getCompletelyInfos/' + adminId)
 	  		.then(function(data) {
 	  			vm.authListDetail = data.data;
 	  		});
