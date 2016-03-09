@@ -9,6 +9,9 @@ angular.module('app')
 	  	var vm = this;
 
 	  	var adminUrl = '/backend/admin';
+	  	
+	  	// 显示分页
+	  	vm.paginationShow = false;
 
 	  	vm.pageChange = pageChange;
 	  	vm.addAdmin = addAdmin;

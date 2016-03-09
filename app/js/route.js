@@ -115,6 +115,17 @@ function route($stateProvider,$urlRouterProvider){
             }]
         }
     })
+    .state("admin.auth-roleDeploy",{
+        url:"/auth-roleDeploy/:adminId",
+        templateUrl:"views/auth/role-deploy.html",
+        controller:"authRoleDeployCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/authRoleDeploy.js");
+            }]
+        }
+    })
     .state('admin.auth-changePwd', {
         url: '/auth-changePwd/:userName',
         templateUrl: 'views/auth/changePwd.html',

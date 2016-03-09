@@ -18,13 +18,13 @@
     <!-- 侧边菜单 -->
     <div class="side col-sm-2">
         <ul class="side-menu">
-            <li ng-repeat="item in vm.menuList">
-                <a href="javascript:;" ng-class="{true: 'active', false: ''}[item.isOpen]" ng-click="vm.menu($index)">{{item.menuTitle}}
+            <li ng-repeat="item in menuList">
+                <a href="javascript:;" ng-class="{true: 'active', false: ''}[item.isOpen]" ng-click="vm.menu($index)">{{item.title}}
                     <span class="pull-right glyphicon arrow glyphicon-menu-right" ng-class="{true: 'glyphicon-menu-down', false: ''}[item.isOpen]"></span>
                 </a>
                 <ul class="side-childMenu" ng-if="{true: true, false: false}[item.isOpen]">
-                    <li ng-repeat="item in item.childMenuList">
-                        <a ui-sref="{{item.state}}" ng-click="vm.childMenu($index, item.menuIndex)" ng-class="{true: 'active', false: ''}[item.isActive]">{{item.childMenuTitle}}</a>
+                    <li ng-repeat="item in item.childMenu">
+                        <a ui-sref="{{item.state}}" ng-click="vm.childMenu($index, item.menuIndex)" ng-class="{true: 'active', false: ''}[item.isActive]">{{item.title}}</a>
                     </li>
                 </ul>
             </li>
