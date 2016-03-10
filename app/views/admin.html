@@ -16,7 +16,7 @@
     </div>
     <!-- /顶部导航 -->
     <!-- 侧边菜单 -->
-    <div class="side col-sm-2">
+    <div class="side col-sm-2 col-xs-12">
         <ul class="side-menu">
             <li ng-repeat="item in vm.menuList">
                 <a href="javascript:;" ng-click="vm.menu($index)" ng-class="{true: 'active', false: ''}[item.isOpen]">{{item.title}}
@@ -32,7 +32,7 @@
     </div>
     <!-- /侧边菜单 -->
     <!-- 主体内容 -->
-    <div class="content col-sm-10"> 
+    <div class="content col-sm-10 col-xs-12"> 
         <div class="messageBox"></div>
         <div ui-view></div>
     </div>
