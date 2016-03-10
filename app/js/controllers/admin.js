@@ -10,104 +10,75 @@ angular.module('app')
 
         var adminUrl = '/backend/admin';
 
+        var flagId = 11;            // 左侧二级菜单默认的active的id为11
+        vm.flag = {};               // 标志左侧二级菜单的对象
+
         vm.isOpen = false;          // 顶部导航右侧账号下拉菜单状态
         vm.signout = signout;       // 退出账号
-        vm.menu = menu;             // 左侧一级菜单
-        vm.childMenu = childMenu;   // 左侧二级菜单
+        vm.menu = menu;             // 左侧一级菜单点击
+        vm.childMenu = childMenu;   // 左侧二级菜单点击
 
         // 当前用户名称
         vm.userName = window.localStorage.getItem('userName');
 
-        // load();
+        load();
 
-        // function load() {
-        //     httpService.getDatas('GET', adminUrl + '/getMenuList/' + vm.userName)
-        //     .then(function(data) {
-        //         $rootScope.menuList = data.data;
-                // var menuListArray = [],
-                    //     menuFlag = 0,
-                    //     authAdmin = false,
-                    //     authRole = false;
-                    // for(var j=0; j<menuListArray.length; j++) {
-            //     if(menuListArray[j] == '会员管理 / 会员列表') {
-            //         menuList.push({'title': '会员管理', 'isOpen': false, 'childMenu': [
-            //             {'title': '会员列表', 'state': 'admin.vip-list', 'isActive': false, 'menuIndex': 0}
-            //             ]
-            //         });
-            //     } else if(menuListArray[j] == '订单管理 / 订单列表') {
-            //         menuList.push({'title': '订单管理', 'isOpen': false, 'childMenu': [
-            //             {'title': '订单列表', 'state': 'admin.order-list', 'isActive': false, 'menuIndex': 1},
-            //             ]
-            //         });
-            //     } else if(menuListArray[j] == '权限管理 / 管理员列表') {
-            //         menuFlag += 1;
-            //         authAdmin = true;
-            //     } else if(menuListArray[j] == '权限管理 / 角色列表') {
-            //         menuFlag += 1;
-            //         authRole = true;
-            //     }
-            // }
-            // if(menuFlag == 1) {
-            //     if(authAdmin) {
-            //         menuList.push({'title': '权限管理', 'isOpen': false, 'childMenu': [
-            //             {'title': '管理员列表', 'state': 'admin.auth-list', 'isActive': false, 'menuIndex': 2}
-            //             ]
-            //         });
-            //     } else if(authRole) {
-            //         menuList.push({'title': '权限管理', 'isOpen': false, 'childMenu': [
-            //             {'title': '角色列表', 'state': 'admin.auth-role', 'isActive': false, 'menuIndex': 2}
-            //             ]
-            //         });
-            //     }
-            // } else if(menuFlag == 2) {
-            //     menuList.push({'title': '权限管理', 'isOpen': false, 'childMenu': [
-            //         {'title': '管理员列表', 'state': 'admin.auth-list', 'isActive': false, 'menuIndex': 2},
-            //         {'title': '角色列表', 'state': 'admin.auth-role', 'isActive': false, 'menuIndex': 2}
-            //         ]
-            //     });
-            // }
-        //     });
-    
-        // }
+        function load() {
+            httpService.getDatas('GET', adminUrl + '/getMenuList/' + vm.userName)
+            .then(function(data) {
+                vm.menuList = menuList(data.data);
+            });
+                
+        }
 
-        // 菜单列表
-        vm.menuList = [
-            {'title': '会员管理', 'isOpen': true, 'childMenu': [
-                {'title': '会员列表', 'state': 'admin.vip-list', 'isActive': true, 'menuIndex': 0, 'index': 0}
-                ]
-            },
-            {'title': '订单管理', 'isOpen': false, 'childMenu': [
-                {'title': '订单列表', 'state': 'admin.order-list', 'isActive': false, 'menuIndex': 1, 'index': 1},
-                ]
-            },
-            {'title': '权限管理', 'isOpen': false, 'childMenu': [
-                {'title': '管理员列表', 'state': 'admin.auth-list', 'isActive': false, 'menuIndex': 2, 'index': 2},
-                {'title': '角色列表', 'state': 'admin.auth-role', 'isActive': false, 'menuIndex': 2, 'index': 3}
-                ]
+        // 菜单列表按权限显示
+        function menuList(idArray) {
+            var menu = [];
+            var vipMenu = {'title': '会员管理', 'isOpen': false, 'childMenu': []},
+                orderMenu = {'title': '订单管理', 'isOpen': false, 'childMenu': []},
+                authMenu = {'title': '权限管理', 'isOpen': false, 'childMenu': []};
+
+            for(var i=0; i< idArray.length; i++) {
+                if(idArray[i] === '11') {
+                    vipMenu.childMenu.push({'title':'会员列表','state':'admin.vip-list','id': 11});
+                } else if(idArray[i] === '21') {
+                    orderMenu.childMenu.push({'title':'订单列表','state':'admin.order-list','id': 21});
+                } else if(idArray[i] === '31') {
+                    authMenu.childMenu.push({'title': '管理员列表', 'state': 'admin.auth-list','id': 31});
+                } else if(idArray[i] === '32') {
+                    authMenu.childMenu.push({'title': '角色列表', 'state': 'admin.auth-role','id': 32});
+                }
             }
-        ];
 
-        
+            var obj = {'vip':vipMenu, 'order':orderMenu, 'auth':authMenu};
+            for(i in obj) {
+                if(obj[i].childMenu.length > 0) {
+                    menu.push(obj[i]);
+                }
+            }
+            return menu;
+        }
+
         // 一级菜单
         function menu(index) {
-            var menuLength = $rootScope.menuList.length;
+            var menuLength = vm.menuList.length;
             for(var i=0; i<menuLength; i++) {
                 if(i === index) {
-                    $rootScope.menuList[i].isOpen = !$rootScope.menuList[i].isOpen;
+                    vm.menuList[i].isOpen = !vm.menuList[i].isOpen;
                 } else {
-                    $rootScope.menuList[i].isOpen = false;
+                    vm.menuList[i].isOpen = false;
                 }
             }
         }
+   
         // 二级菜单
-        function childMenu(index, menuIndex) {
-            var childMenuLength = $rootScope.menuList[menuIndex].childMenu.length;
-            for(var i=0; i<childMenuLength; i++) {
-                if(i === index) {
-                    $rootScope.menuList[menuIndex].childMenu[i].isActive = true;
-                } else {
-                    $rootScope.menuList[menuIndex].childMenu[i].isActive = false;
-                }
+        function childMenu(id) {
+            if(Number(id) != flagId) {
+                vm.flag[id] = true;
+                vm.flag[flagId] = false;
+                flagId = Number(id);
+            } else {
+                vm.flag[flagId] = true;
             }
         }
         // 退出账号

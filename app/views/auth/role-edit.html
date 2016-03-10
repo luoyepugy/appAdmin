@@ -1,5 +1,5 @@
 
-<div class="content-title">权限管理</div>
+<div class="content-title">权限管理—<a ui-sref="admin.auth-role" class="f16 gray">角色列表</a><span class="f16 gray">—编辑</span></div>
 <div class="container">
     <!-- 表单 -->
     <form class="form-horizontal j-authRoleEditForm">
@@ -13,10 +13,10 @@
             <label for="inputLockout" class="col-sm-2 control-label">接口权限</label>
             <div class="col-sm-8">
                 <div>
-                    <label><input type="checkbox" ng-model="vm.checkedAll" ng-click="vm.choiceAll()">全选</label>
+                    <label><input type="checkbox" name="allInterface" ng-model="vm.allInterface" ng-click="vm.checkedAllInterface(vm.allInterface)">全选</label>
                 </div>
                 <li class="checkboxList form-control" ng-repeat="item in vm.interfaceList">
-                    <label class="mr10"><input name="interfaceList" type="checkbox" ng-model="vm.checkedInterfaces[item.route]" value="{{item.route}}">{{item.route}}</label>
+                    <label class="mr10"><input name="interfaceList" type="checkbox" ng-checked="vm.allInterface" ng-model="vm.checkedInterfaces[item.route]">{{item.route}}</label>
                 </li>
                 <div class="btn btn-default mt10" ng-click="vm.setInterface()">保存接口权限设置</div>
             </div>
@@ -24,9 +24,11 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">菜单权限</label>
             <div class="col-sm-8">
+                <div>
+                    <label><input type="checkbox" name="allMenu"  ng-model="vm.allMenu" ng-click="vm.checkedAllMenu(vm.allMenu)">全选</label>
+                </div>
                 <li class="checkboxList form-control" ng-repeat="item in vm.menuList">
-                    <label class="mr10"><input name="{{item}}" type="checkbox" ng-model="vm.checkedMenus[item]" value="{{item}}">{{item}}
-                    </label>
+                    <label class="mr10"><input name="menuList" type="checkbox" ng-checked="vm.allMenu" ng-model="vm.checkedMenus[item.id]">{{item.name}}</label>
                 </li>
                 <div class="btn btn-default mt10" ng-click="vm.setMenu()">保存菜单权限设置</div>
             </div>

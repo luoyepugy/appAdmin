@@ -24,7 +24,7 @@
                 </a>
                 <ul class="side-childMenu" ng-if="{true: true, false: false}[item.isOpen]">
                     <li ng-repeat="item in item.childMenu">
-                        <a ui-sref="{{item.state}}" ng-click="vm.childMenu($index, item.menuIndex)" ng-class="{true: 'active', false: ''}[item.isActive]">{{item.title}}</a>
+                        <a ui-sref="{{item.state}}" ng-click="vm.childMenu(item.id)" ng-class="{true: 'active', false: ''}[vm.flag[item.id]]">{{item.title}}</a>
                     </li>
                 </ul>
             </li>

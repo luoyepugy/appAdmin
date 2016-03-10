@@ -1,5 +1,5 @@
 
-<div class="content-title">订单管理</div>
+<div class="content-title">订单管理—<span class="f16 gray">订单列表</span></div>
 <div class="table-responsive p20">
     <!-- 列表 -->
     <table class="table table-condensed table-hover">
@@ -19,7 +19,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="item in vm.orderList">
-                <td>{{item['_id']}}</td>
+                <td>{{item.name}}</td>
                 <td>{{item.productName}}</td>
                 <td>{{item.productAmount}}</td>
                 <td>{{item.productUnit}}</td>
