@@ -13,6 +13,7 @@ function route($stateProvider,$urlRouterProvider){
         url:"/signin",
         templateUrl:"views/signin.html"
     })
+
     // 主要结构
     .state('admin', {
         url: '/admin',
