@@ -1,3 +1,3 @@
 # appAdmin
 
-epipeApp 管理后台
+epipeApp 后台管理系统
