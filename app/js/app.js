@@ -6,7 +6,7 @@ var value = {
 	'host': 'http://192.168.1.154:8083'
 }
 
-var app = angular.module("app", ["ui.bootstrap", "ngAnimate", "ui.router","oc.lazyLoad"])
+var app = angular.module("app", ["ui.bootstrap", "ui.router","oc.lazyLoad"])
 	.config(appConfig)
 	.constant('config', value);
 

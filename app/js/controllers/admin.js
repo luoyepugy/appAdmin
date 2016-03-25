@@ -34,9 +34,10 @@ angular.module('app')
         // 菜单列表按权限显示
         function menuList(idArray) {
             var menu = [];
-            var vipMenu = {'title': '会员管理', 'isOpen': false, 'childMenu': []},
-                orderMenu = {'title': '订单管理', 'isOpen': false, 'childMenu': []},
-                authMenu = {'title': '权限管理', 'isOpen': false, 'childMenu': []};
+            var vipMenu = {'title': '会员管理', 'isOpen': true, 'childMenu': []},
+                orderMenu = {'title': '订单管理', 'isOpen': true, 'childMenu': []},
+                authMenu = {'title': '权限管理', 'isOpen': true, 'childMenu': []},
+                helpMenu = {'title': '帮助', 'isOpen': true, 'childMenu': []};
 
             for(var i=0; i< idArray.length; i++) {
                 if(idArray[i] === '11') {
@@ -47,10 +48,14 @@ angular.module('app')
                     authMenu.childMenu.push({'title': '管理员列表', 'state': 'admin.auth-list','id': 31});
                 } else if(idArray[i] === '32') {
                     authMenu.childMenu.push({'title': '角色列表', 'state': 'admin.auth-role','id': 32});
+                } else if(idArray[i] === '41') {
+                    authMenu.childMenu.push({'title': '关于', 'state': 'admin.auth-role','id': 41});
+                } else if(idArray[i] === '42') {
+                    authMenu.childMenu.push({'title': '手册', 'state': 'admin.auth-role','id': 42});
                 }
             }
 
-            var obj = {'vip':vipMenu, 'order':orderMenu, 'auth':authMenu};
+            var obj = {'vip':vipMenu, 'order':orderMenu, 'auth':authMenu, 'help': helpMenu};
             for(i in obj) {
                 if(obj[i].childMenu.length > 0) {
                     menu.push(obj[i]);
@@ -62,13 +67,14 @@ angular.module('app')
         // 一级菜单
         function menu(index) {
             var menuLength = vm.menuList.length;
-            for(var i=0; i<menuLength; i++) {
-                if(i === index) {
-                    vm.menuList[i].isOpen = !vm.menuList[i].isOpen;
-                } else {
-                    vm.menuList[i].isOpen = false;
-                }
-            }
+            vm.menuList[index].isOpen = !vm.menuList[index].isOpen;
+            // for(var i=0; i<menuLength; i++) {
+            //     if(i === index) {
+            //         vm.menuList[i].isOpen = !vm.menuList[i].isOpen;
+            //     } else {
+            //         vm.menuList[i].isOpen = false;
+            //     }
+            // }
         }
    
         // 二级菜单

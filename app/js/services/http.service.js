@@ -52,6 +52,7 @@ angular.module('app')
             // http请求
             $http(req)
             .success(function(response, status) {
+                console.log(status);
                 if(response.status) {
                     deferred.resolve(response);
                 } else {

@@ -30,7 +30,9 @@ angular.module('app')
             {'name': '会员管理 / 会员列表', 'id': 11},
             {'name': '订单管理 / 订单列表', 'id': 21},
             {'name': '权限管理 / 管理员列表', 'id': 31},
-            {'name': '权限管理 / 角色列表', 'id': 32}
+            {'name': '权限管理 / 角色列表', 'id': 32},
+            {'name': '帮助 / 关于', 'id': 41},
+            {'name': '帮助 / 手册', 'id': 42}
         ];
 
         vm.setInterface = setInterface;
