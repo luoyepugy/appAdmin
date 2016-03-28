@@ -10,14 +10,6 @@ angular.module('app')
 
 	  	var roleUrl = '/backend/role';
 
-	  	vm.pageChange = pageChange;
-
-	  	vm.pagination = {
-	  		maxSize: 5,
-	  		bigTotalItems: 15,
-	  		bigCurrentPage: 1
-	  	};
-
 	  	load();
 	  	// 页面加载
 	  	function load() {
@@ -25,11 +17,6 @@ angular.module('app')
 	  		.then(function(data) {
 	  			vm.authRoleList = data.data;
 	  		});
-	  	}
-
-	  	// 分页
-	  	function pageChange () {
-	  		console.log('page' + vm.pagination.bigCurrentPage);
 	  	}
 
   	};

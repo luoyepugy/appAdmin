@@ -9,18 +9,8 @@ angular.module('app')
 	  	var vm = this;
 
 	  	var adminUrl = '/backend/admin';
-	  	
-	  	// 显示分页
-	  	vm.paginationShow = false;
 
-	  	vm.pageChange = pageChange;
 	  	vm.addAdmin = addAdmin;
-
-	  	vm.pagination = {
-	  		maxSize: 5,
-	  		bigTotalItems: 15,
-	  		bigCurrentPage: 1
-	  	};
 
 	  	load();
 	  	// 页面加载
@@ -29,11 +19,6 @@ angular.module('app')
 	  		.then(function(data) {
 	  			vm.authList = data.data;
 	  		});
-	  	}
-
-	  	// 分页
-	  	function pageChange () {
-	  		// console.log('page' + vm.pagination.bigCurrentPage);
 	  	}
 
 	  	// 新增管理员

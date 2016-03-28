@@ -10,13 +10,6 @@ angular.module('app')
 
 	  	var orderUrl = '/backend/order';
 
-	  	vm.pageChange = pageChange;
-	  	vm.pagination = {
-	  		maxSize: 5,
-	  		bigTotalItems: 15,
-	  		bigCurrentPage: 1
-	  	};
-
 	  	load();
 	  	// 页面加载
 	  	function load() {
@@ -24,11 +17,6 @@ angular.module('app')
 	  		.then(function(data) {
 	  			vm.orderList = data.data;
 	  		});
-	  	}
-
-	  	// 分页
-	  	function pageChange () {
-	  		console.log('page' + vm.pagination.bigCurrentPage);
 	  	}
 
   	};
