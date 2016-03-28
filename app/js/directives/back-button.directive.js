@@ -1,8 +1,8 @@
 (function() {
     'use strict';
 
-define(['../common.module'], function(common) {
-    common.directive('backButton', backButton);
+angular.module('app')
+    .directive('backButton', backButton);
 
     /* @ngInject */
     function backButton($window) {
@@ -15,11 +15,9 @@ define(['../common.module'], function(common) {
 
         function link(scope, elem, attrs) {
             elem.bind('click', function () {
-                // scope.test = 'a';
                 $window.history.back();
             });
         };
     };
-});
 
 })();
