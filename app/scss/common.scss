@@ -2,6 +2,7 @@
 @import "custom/custom";
 @import "custom/mixin";
 
+
 // ui.bootstrap
 .nav, .pagination, .carousel, .panel-title a { 
     cursor: pointer; 
@@ -120,6 +121,12 @@
     }
 }
 
+// 手册
+.manual {
+    margin: 0 auto;
+    width: 1000px;
+}
+
 
 // 颜色
-@include color('gray', #444);
+@include color('gray', "#444");
