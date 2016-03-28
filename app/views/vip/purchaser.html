@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in vm.vipList | purchaser">
+            <tr ng-repeat="item in vm.vipList | filter: '采购商'">
                 <td>{{item.phone}}</td>
                 <td>{{item.userType}}</td>
                 <td>

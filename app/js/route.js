@@ -40,6 +40,30 @@ function route($stateProvider,$urlRouterProvider){
             }]
         }
     })
+    .state("admin.vip-purchaser",{
+        url:"/vip-purchaser",
+        controller:"vipListCtrl",
+        controllerAs:"vm",
+        cache: false,
+        templateUrl:"views/vip/purchaser.html",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/vipList.js");
+            }]
+        }
+    })
+    .state("admin.vip-supplier",{
+        url:"/vip-supplier",
+        controller:"vipListCtrl",
+        controllerAs:"vm",
+        cache: false,
+        templateUrl:"views/vip/supplier.html",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/controllers/vipList.js");
+            }]
+        }
+    })
     .state("admin.vip-edit",{
         url:"/vip-edit/:vipId",
         templateUrl:"views/vip/edit.html",
@@ -57,6 +81,102 @@ function route($stateProvider,$urlRouterProvider){
         url:"/order-list",
         cache: false,
         templateUrl:"views/order/list.html",
+        controller:"orderListCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/filters/order-offerShow.filter.js").then(
+                    function(){
+                        return $ocLazyLoad.load("js/controllers/orderList.js");
+                    }
+                );
+            }]
+        }
+    })
+    .state("admin.order-offer",{
+        url:"/order-offer",
+        cache: false,
+        templateUrl:"views/order/offer.html",
+        controller:"orderListCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/filters/order-offerShow.filter.js").then(
+                    function(){
+                        return $ocLazyLoad.load("js/controllers/orderList.js");
+                    }
+                );
+            }]
+        }
+    })
+    .state("admin.order-paying",{
+        url:"/order-paying",
+        cache: false,
+        templateUrl:"views/order/paying.html",
+        controller:"orderListCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/filters/order-offerShow.filter.js").then(
+                    function(){
+                        return $ocLazyLoad.load("js/controllers/orderList.js");
+                    }
+                );
+            }]
+        }
+    })
+    .state("admin.order-payed",{
+        url:"/order-payed",
+        cache: false,
+        templateUrl:"views/order/payed.html",
+        controller:"orderListCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/filters/order-offerShow.filter.js").then(
+                    function(){
+                        return $ocLazyLoad.load("js/controllers/orderList.js");
+                    }
+                );
+            }]
+        }
+    })
+    .state("admin.order-shipped",{
+        url:"/order-shipped",
+        cache: false,
+        templateUrl:"views/order/shipped.html",
+        controller:"orderListCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/filters/order-offerShow.filter.js").then(
+                    function(){
+                        return $ocLazyLoad.load("js/controllers/orderList.js");
+                    }
+                );
+            }]
+        }
+    })
+    .state("admin.order-finished",{
+        url:"/order-finished",
+        cache: false,
+        templateUrl:"views/order/finished.html",
+        controller:"orderListCtrl",
+        controllerAs:"vm",
+        resolve:{
+            deps:["$ocLazyLoad",function($ocLazyLoad){
+                return $ocLazyLoad.load("js/filters/order-offerShow.filter.js").then(
+                    function(){
+                        return $ocLazyLoad.load("js/controllers/orderList.js");
+                    }
+                );
+            }]
+        }
+    })
+    .state("admin.order-closed",{
+        url:"/order-closed",
+        cache: false,
+        templateUrl:"views/order/closed.html",
         controller:"orderListCtrl",
         controllerAs:"vm",
         resolve:{
