@@ -28,18 +28,6 @@ function route($stateProvider,$urlRouterProvider){
     })
 
     // vip会员
-    .state("admin.vip-list",{
-        url:"/vip-list",
-        cache: false,
-        templateUrl:"views/vip/list.html",
-        controller:"vipListCtrl",
-        controllerAs:"vm",
-        resolve:{
-            deps:["$ocLazyLoad",function($ocLazyLoad){
-                return $ocLazyLoad.load("js/controllers/vipList.js");
-            }]
-        }
-    })
     .state("admin.vip-purchaser",{
         url:"/vip-purchaser",
         controller:"vipListCtrl",
@@ -77,22 +65,6 @@ function route($stateProvider,$urlRouterProvider){
     })
 
     // order订单
-    .state("admin.order-list",{
-        url:"/order-list",
-        cache: false,
-        templateUrl:"views/order/list.html",
-        controller:"orderListCtrl",
-        controllerAs:"vm",
-        resolve:{
-            deps:["$ocLazyLoad",function($ocLazyLoad){
-                return $ocLazyLoad.load("js/filters/order-offerShow.filter.js").then(
-                    function(){
-                        return $ocLazyLoad.load("js/controllers/orderList.js");
-                    }
-                );
-            }]
-        }
-    })
     .state("admin.order-offer",{
         url:"/order-offer",
         cache: false,
@@ -289,7 +261,17 @@ function route($stateProvider,$urlRouterProvider){
     .state("admin.auth-addRole",{
         url:"/auth-addRole",
         templateUrl:"views/auth/add-role.html"
-    });
+    })
+
+    // 帮助
+    .state("admin.help-about",{
+        url:"/help-about",
+        templateUrl:"views/help/about.html"
+    })
+    .state("admin.help-manual",{
+        url:"/help-manual",
+        templateUrl:"views/help/manual.html"
+    })
 };
 
 })();

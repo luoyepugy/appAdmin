@@ -40,19 +40,34 @@ angular.module('app')
                 helpMenu = {'title': '帮助', 'isOpen': true, 'childMenu': []};
 
             for(var i=0; i< idArray.length; i++) {
-                if(idArray[i] === '11') {
-                    vipMenu.childMenu.push({'title':'会员列表','state':'admin.vip-list','id': 11});
-                } else if(idArray[i] === '21') {
-                    orderMenu.childMenu.push({'title':'订单列表','state':'admin.order-list','id': 21});
-                } else if(idArray[i] === '31') {
-                    authMenu.childMenu.push({'title': '管理员列表', 'state': 'admin.auth-list','id': 31});
-                } else if(idArray[i] === '32') {
-                    authMenu.childMenu.push({'title': '角色列表', 'state': 'admin.auth-role','id': 32});
-                } else if(idArray[i] === '41') {
-                    authMenu.childMenu.push({'title': '关于', 'state': 'admin.auth-role','id': 41});
-                } else if(idArray[i] === '42') {
-                    authMenu.childMenu.push({'title': '手册', 'state': 'admin.auth-role','id': 42});
+                switch(idArray[i]) {
+                    case '11' : vipMenu.childMenu.push({'title':'采购商列表','state':'admin.vip-purchaser','id': 11}); break;
+                    case '12' : vipMenu.childMenu.push({'title':'供应商列表','state':'admin.vip-supplier','id': 12}); break;
+                    case '21' : orderMenu.childMenu.push({'title':'报价列表','state':'admin.order-offer','id': 21}); break;
+                    case '22' : orderMenu.childMenu.push({'title':'待支付列表','state':'admin.order-paying','id': 22}); break;
+                    case '23' : orderMenu.childMenu.push({'title':'已支付列表','state':'admin.order-payed','id': 23}); break;
+                    case '24' : orderMenu.childMenu.push({'title':'已发货列表','state':'admin.order-shipped','id': 24}); break;
+                    case '25' : orderMenu.childMenu.push({'title':'已完成列表','state':'admin.order-finished','id': 25}); break;
+                    case '26' : orderMenu.childMenu.push({'title':'已关闭列表','state':'admin.order-closed','id': 26}); break;
+                    case '31' : authMenu.childMenu.push({'title': '管理员列表', 'state': 'admin.auth-list','id': 31}); break;
+                    case '32' : authMenu.childMenu.push({'title': '角色列表', 'state': 'admin.auth-role','id': 32}); break;
+                    case '41' : helpMenu.childMenu.push({'title': '关于', 'state': 'admin.help-about','id': 41}); break;
+                    case '42' : helpMenu.childMenu.push({'title': '手册', 'state': 'admin.help-manual','id': 42}); break;
                 }
+
+                // if(idArray[i] === '11') {
+                //     vipMenu.childMenu.push({'title':'会员列表','state':'admin.vip-list','id': 11});
+                // } else if(idArray[i] === '21') {
+                //     orderMenu.childMenu.push({'title':'订单列表','state':'admin.order-list','id': 21});
+                // } else if(idArray[i] === '31') {
+                //     authMenu.childMenu.push({'title': '管理员列表', 'state': 'admin.auth-list','id': 31});
+                // } else if(idArray[i] === '32') {
+                //     authMenu.childMenu.push({'title': '角色列表', 'state': 'admin.auth-role','id': 32});
+                // } else if(idArray[i] === '41') {
+                //     helpMenu.childMenu.push({'title': '关于', 'state': 'admin.help-about','id': 41});
+                // } else if(idArray[i] === '42') {
+                //     helpMenu.childMenu.push({'title': '手册', 'state': 'admin.help-manual','id': 42});
+                // }
             }
 
             var obj = {'vip':vipMenu, 'order':orderMenu, 'auth':authMenu, 'help': helpMenu};
