@@ -61,8 +61,15 @@ angular.module('app')
                 for(var i=0; i<interfaceLength; i++) {
                     vm.checkedInterfaces[datas.interfaceList[i]] = true;
                 }
+                if(interfaceLength == vm.interfaceList.length) {
+                    vm.allInterface = true;
+                }
+
                 for(var j=0; j<menuListLength; j++) {
                     vm.checkedMenus[datas.menuList[j]] = true;
+                }
+                if(menuListLength == vm.menuList.length) {
+                    vm.allMenu = true;
                 }
             });
             // 获取所有接口

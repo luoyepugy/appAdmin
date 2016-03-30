@@ -13,7 +13,7 @@
             <label for="inputLockout" class="col-sm-2 control-label">接口权限</label>
             <div class="col-sm-8">
                 <div>
-                    <label><input type="checkbox" name="allInterface" ng-model="vm.allInterface" ng-click="vm.checkedAllInterface(vm.allInterface)">全选</label>
+                    <label><input type="checkbox" name="allInterface" ng-model="vm.allInterface" ng-click="vm.checkedAllInterface(vm.allInterface)">全选／全不选</label>
                 </div>
                 <li class="checkboxList form-control" ng-repeat="item in vm.interfaceList">
                     <label class="mr10"><input name="interfaceList" type="checkbox" ng-checked="vm.allInterface" ng-model="vm.checkedInterfaces[item.route]">{{item.route}}</label>
@@ -25,7 +25,7 @@
             <label class="col-sm-2 control-label">菜单权限</label>
             <div class="col-sm-8">
                 <div>
-                    <label><input type="checkbox" name="allMenu"  ng-model="vm.allMenu" ng-click="vm.checkedAllMenu(vm.allMenu)">全选</label>
+                    <label><input type="checkbox" name="allMenu"  ng-model="vm.allMenu" ng-click="vm.checkedAllMenu(vm.allMenu)">全选／全不选</label>
                 </div>
                 <li class="checkboxList form-control" ng-repeat="item in vm.menuList">
                     <label class="mr10"><input name="menuList" type="checkbox" ng-checked="vm.allMenu" ng-model="vm.checkedMenus[item.id]">{{item.name}}</label>
