@@ -7,7 +7,9 @@
             <label class="col-sm-2 control-label">角色名</label>
             <div class="col-sm-8">
                 <li class="checkboxList form-control" ng-repeat="item in vm.authRoleDeploy">
-                    <label class="mr10"><input name="roles" type="checkbox" ng-model="vm.checkedRole[item['_id']]" value="{{item.id}}">{{item.name}}</label>
+                    <label class="mr10">
+                        <input name="roles" type="checkbox" ng-model="vm.checkedRole[item['_id']]" value="{{item.id}}">{{item.name}}
+                    </label>
                 </li>
             </div>
         </div>

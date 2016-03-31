@@ -22,7 +22,7 @@ angular.module('app')
                 }
                 $timeout(function(){
                     $('.alert').remove();
-                }, 5000);
+                }, 3000);
             }
         };
     };

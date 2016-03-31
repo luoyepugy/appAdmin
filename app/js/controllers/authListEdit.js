@@ -11,6 +11,7 @@ angular.module('app')
 	  	var adminUrl = '/backend/admin',
 	  		adminId = $stateParams.adminId;
 
+
 	  	load();
 	  	// 页面加载
 	  	function load() {

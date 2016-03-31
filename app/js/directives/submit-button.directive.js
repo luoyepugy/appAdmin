@@ -37,10 +37,17 @@ angular.module('app')
                 if(resultsDatas) {
                     var method = attrs.method || 'POST';
 
+                    // console.log(resultsDatas);
+
                     httpService.getDatas(method, '/backend' + attrs.action, resultsDatas)
                     // httpService.get(method, action, resultsDatas);
                     .then(function(data) {
-                        $state.go(state);
+                        if(state == 'back') {
+                            $window.history.back();
+                        } else {
+                            $state.go(state);
+                        }
+                        
                         if(login === 'true') {
                             $window.localStorage.token = data.token;
                             window.localStorage.userName = resultsDatas.userName;
