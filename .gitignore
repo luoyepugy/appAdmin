@@ -3,3 +3,5 @@
 /.sass-cache
 *~
 /app/scss
+/bower_components
+/test
