@@ -1,0 +1,23 @@
+
+<div class="content-title">权限管理—</a><span class="f16 gray mr20">配置角色</span><span class="btn btn-default" back-button>返回</span></div>
+<div class="table-responsive p20">
+   <!-- 表单 -->
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">角色名</label>
+            <div class="col-sm-8">
+                <li class="checkboxList form-control" ng-repeat="item in vm.authRoleDeploy">
+                    <label class="mr10">
+                        <input name="roles" type="checkbox" ng-model="vm.checkedRole[item['_id']]" value="{{item.id}}">{{item.name}}
+                    </label>
+                </li>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <button class="btn btn-default ml15" ng-click="vm.deployRole()">提交保存</button>
+            </div>
+        </div>
+    </form>
+    <!-- /表单 -->
+</div>
