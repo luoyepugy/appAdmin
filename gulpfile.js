@@ -1,3 +1,4 @@
+
 // Generated on 2016-03-01 using generator-angular 0.15.1
 'use strict';
 
