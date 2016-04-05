@@ -51,7 +51,7 @@ var styles = lazypipe()
     precision: 10
   })
   .pipe($.autoprefixer, 'last 1 version')
-  .pipe(gulp.dest, '.tmp/styles');
+  .pipe(gulp.dest, '/styles');
 
 ///////////
 // Tasks //
@@ -68,7 +68,7 @@ gulp.task('lint:scripts', function () {
 });
 
 gulp.task('clean:tmp', function (cb) {
-  rimraf('./.tmp', cb);
+  rimraf('./tmp/', cb);
 });
 
 gulp.task('start:client', ['start:server', 'styles'], function () {
@@ -113,7 +113,7 @@ gulp.task('watch', function () {
 
   var files = [
     'app/**/*.html',
-    '.tmp/styles/**/*.css',
+    'app/css/**/*.css',
     'app/images/**/*',
     'app/js/**/*.js'
   ];
