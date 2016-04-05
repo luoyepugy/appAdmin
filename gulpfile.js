@@ -51,7 +51,7 @@ var styles = lazypipe()
     precision: 10
   })
   .pipe($.autoprefixer, 'last 1 version')
-  .pipe(gulp.dest, '/styles');
+  .pipe(gulp.dest, '.tmp/styles');
 
 ///////////
 // Tasks //
