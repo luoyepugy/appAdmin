@@ -1,4 +1,3 @@
-
 // Generated on 2016-03-01 using generator-angular 0.15.1
 'use strict';
 
@@ -52,7 +51,7 @@ var styles = lazypipe()
     precision: 10
   })
   .pipe($.autoprefixer, 'last 1 version')
-  .pipe(gulp.dest, '/styles');
+  .pipe(gulp.dest, '.tmp/styles');
 
 ///////////
 // Tasks //
@@ -69,7 +68,7 @@ gulp.task('lint:scripts', function () {
 });
 
 gulp.task('clean:tmp', function (cb) {
-  rimraf('./tmp/', cb);
+  rimraf('./.tmp', cb);
 });
 
 gulp.task('start:client', ['start:server', 'styles'], function () {
@@ -114,14 +113,14 @@ gulp.task('watch', function () {
 
   var files = [
     'app/**/*.html',
-    'app/css/**/*.css',
+    '.tmp/styles/**/*.css',
     'app/images/**/*',
     'app/js/**/*.js'
   ];
 
   browserSync.init(files, {
     server: {
-      baseDir: './'
+      baseDir: './dist/'
     }
   });
 
@@ -183,7 +182,7 @@ gulp.task('client:build', ['html', 'styles'], function () {
     .pipe(cssFilter)
     .pipe($.minifyCss({cache: true}))
     .pipe(cssFilter.restore())
-    .pipe($.rev())
+    // .pipe($.rev())
     .pipe($.revReplace())
     .pipe(gulp.dest(yeoman.dist));
 });
