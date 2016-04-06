@@ -14,10 +14,10 @@ angular.module('app')
 
 	  	// 新增管理员
 	  	function addAdmin() {
-	  		httpService.getDatas('GET', adminUrl + '/creat')
-	  		.then(function(data) {
-	  			vm.authList = data.data;
-	  		});
+	  		// httpService.getDatas('GET', adminUrl + '/creat')
+	  		// .then(function(data) {
+	  		// 	vm.authList = data.data;
+	  		// });
 	  	}
 
   	};

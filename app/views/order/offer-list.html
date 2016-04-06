@@ -5,8 +5,6 @@
     <table class="table table-condensed table-hover">
         <thead>
             <tr>
-                <th>订单号</th>
-                <th>类型</th>
                 <th>用户名</th>
                 <th>公司</th>
                 <th>已审核</th>
@@ -19,8 +17,6 @@
         </thead>
         <tbody>
             <tr ng-repeat="item in vm.orderOfferList">
-                <td>{{item['_id']}}</td>
-                <td>{{item.user.userType}}</td>
                 <td>{{item.user.phone}}</td>
                 <td>{{item.user.userProfile.company}}</td>
                 <td>
