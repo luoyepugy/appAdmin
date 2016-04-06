@@ -1,0 +1,41 @@
+
+@import "../custom/mixin";
+
+// 登录页面
+.signin {
+	width: 100%; 
+	.header {
+		height: 80px;
+		line-height: 80px;
+		h3 {
+			font-size: 24px;
+			color: #333;
+		}
+		@include link-a(#333, $main-orange);
+	}
+	.signinForm {
+		width: 100%;
+		background: #fff;
+		padding: 50px;
+		margin-top: 15%;
+		@media (max-width: 768px) {
+			margin-top: 0
+		}
+		@media (min-width: 768px) and (max-width: 1200px) {
+			margin-top: 5%;
+			padding: 35px;
+		}
+	}
+		
+	#button {
+		@include inside-center(100%, 20px);
+		@include skin-basic($main-orange, #fff, $main-orange);
+		&:hover {
+			background: darken($main-orange, 5%);
+		}
+	}
+}
+.signin-bg {
+	background-size: cover;
+	width: 100%;
+}

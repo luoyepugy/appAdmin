@@ -1,0 +1,156 @@
+
+@import "custom/custom";
+@import "custom/mixin";
+
+
+// ui.bootstrap
+.nav, .pagination, .carousel, .panel-title a { 
+    cursor: pointer; 
+}
+// bootstrap
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.btn-primary {
+    @include skin-bgbd($main-orange, $main-orange);
+    &:hover {
+        @include skin-bgbd(darken($main-orange, 5%), darken($main-orange, 5%));
+    }
+}
+
+
+@include size-icon(65);
+
+// 添加按钮
+.btn-add {
+    text-align: right;
+    width: 100%;
+    padding-right: 20px;
+}
+// chekbox列表
+.checkboxList {
+    label {
+        display: block;
+    }
+}
+
+// 主体结构样式
+.main {
+    width: 100%;
+    @include link-basic($main-orange);
+    a.btn-default {
+        @include link(#333);
+    }
+    a.btn-orange {
+        @include skin-basic($main-orange, #fff, $main-orange);
+        &:hover {
+            @include skin-basic(darken($main-orange, 10%), #fff, $main-orange);
+        } 
+    }
+}
+.container {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+
+// 顶部菜单
+.top-nav {
+    @include skin-bgfg($main-orange, #fff);
+    line-height: 50px;
+    padding: 0 20px;
+    .account {
+        padding: 0 15px;
+        cursor: pointer;
+        &:hover {
+            background: darken($main-orange, 10%);
+        }
+    }
+}
+
+// 左边菜单
+.side {
+    padding: 0;
+}
+.side-menu {
+    a {
+        width: 100%;
+        padding: 10px 15px;
+        display: block;
+        color: #666;
+        text-decoration: none;
+        &:hover {
+            @include skin-bgfg(#fff, $main-orange);
+        }
+    }
+}
+.side-menu > li {
+    border-bottom: 1px solid #e7e7e7;
+    & > a.active {
+       color: $main-orange; 
+    }
+}
+.side-childMenu {
+    a {
+        padding-left: 40px;
+    }
+    a.active {
+        @include skin-bgfg(#eee, #666);
+    }
+}
+
+// 右边内容
+.content {
+    padding: 0;
+    border-left: 1px solid #e7e7e7;
+    min-height: 700px;
+}
+.content-title {
+    font-size: 20px;
+    padding: 20px 0;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+// 分页
+.pagination {
+    float: right;
+}
+.pagination>.active>a {
+    @include skin-basic($main-orange, #fff, $main-orange);
+    &:hover {
+        @include skin-basic(darken($main-orange, 10%), #fff, $main-orange);
+    }
+}
+.pagination>li>a {
+    color: #333;
+    &:hover {
+        color: $main-orange;
+    }
+}
+
+// 手册
+.manual {
+    margin: 0 auto;
+    width: 1000px;
+}
+.type {
+    background: #eee;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 18px;
+    color: $main-orange;
+}
+
+// 版权
+.copyright {
+    text-align: center;
+    margin: 30px 0;
+    color: #666;
+}
+
+
+// 颜色
+@include color('gray', "#444");
