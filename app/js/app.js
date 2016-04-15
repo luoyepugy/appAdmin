@@ -4,6 +4,7 @@
 
 var value = {
 	'host': 'http://192.168.1.154:8083'
+    // 'host': 'http://www.epipe.cn:3001'
 }
 
 var app = angular.module("app", ["ui.bootstrap", "ui.router","oc.lazyLoad"])

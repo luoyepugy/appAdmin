@@ -61,7 +61,7 @@ angular.module('app')
                 }
             })
             .error(function(error, status){
-                console.log(status);
+                // console.log(status);
                 if(status === 401) {
                     $state.go('signin');
                 } else if (status === 403) {
